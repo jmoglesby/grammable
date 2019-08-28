@@ -214,6 +214,9 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    simple_form (4.1.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     solargraph (0.37.2)
       backport (~> 1.1)
       bundler (>= 1.17.2)
@@ -283,6 +286,7 @@ DEPENDENCIES
   rubocop (~> 0.74.0)
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   solargraph
   spring
   spring-watcher-listen (~> 2.0.0)
