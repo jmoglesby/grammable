@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GramsController < ApplicationController
   def index
     @grams = Gram.all

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -38,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Others
 gem 'bootstrap'
+gem 'devise'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
