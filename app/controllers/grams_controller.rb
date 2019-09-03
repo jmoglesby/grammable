@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class GramsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @grams = Gram.all
   end
@@ -10,9 +12,9 @@ class GramsController < ApplicationController
   end
 
   def create
-    new_gram = Gram.create(gram_params)
-    if new_gram.valid?
-      redirect_to :root
+    @gram = current_user.grams.create(gram_params)
+    if @gram.valid?
+      redirect_to root_path
     else
       render :new, status: :unprocessable_entity
     end
