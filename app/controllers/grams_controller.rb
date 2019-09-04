@@ -2,15 +2,13 @@
 
 class GramsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :gram, only: %i[show]
+  before_action :gram, only: %i[show edit update]
 
   def index
     @grams = Gram.all
   end
 
-  def show
-    render plain: 'No Gram with that ID Found', status: :not_found unless @gram.present?
-  end
+  def show; end
 
   def new
     @gram = Gram.new
@@ -25,6 +23,17 @@ class GramsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    @gram.update_attributes(gram_params)
+    if @gram.valid?
+      redirect_to root_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
   def gram_params
@@ -33,5 +42,10 @@ class GramsController < ApplicationController
 
   def gram
     @gram ||= Gram.find_by_id(params[:id])
+    return render_not_found if @gram.blank?
+  end
+
+  def render_not_found
+    render plain: 'No Gram with that ID found', status: :not_found
   end
 end
