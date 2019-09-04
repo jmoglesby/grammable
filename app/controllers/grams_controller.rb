@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class GramsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :gram, only: %i[show edit update destroy]
+  before_action :ensure_user_is_owner, only: %i[edit update destroy]
 
   def index
     @grams = Gram.all
@@ -52,5 +53,9 @@ class GramsController < ApplicationController
 
   def render_not_found
     render plain: 'No Gram with that ID found', status: :not_found
+  end
+
+  def ensure_user_is_owner
+    render plain: 'Forbidden', status: :forbidden if @gram.user != current_user
   end
 end
