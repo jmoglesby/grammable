@@ -48,11 +48,7 @@ class GramsController < ApplicationController
 
   def gram
     @gram ||= Gram.find_by_id(params[:id])
-    return render_not_found if @gram.blank?
-  end
-
-  def render_not_found
-    render plain: 'No Gram with that ID found', status: :not_found
+    render plain: 'No Gram with that ID found', status: :not_found if @gram.blank?
   end
 
   def ensure_user_is_owner
