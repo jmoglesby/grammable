@@ -2,7 +2,7 @@
 
 class GramsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create]
-  before_action :gram, only: %i[show edit update]
+  before_action :gram, only: %i[show edit update destroy]
 
   def index
     @grams = Gram.all
@@ -32,6 +32,11 @@ class GramsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @gram.delete
+    redirect_to root_path
   end
 
   private # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
