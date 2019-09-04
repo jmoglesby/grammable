@@ -1,4 +1,9 @@
 <h1 class="badge badge-danger">Grams</h1>
 <% @grams.each do |gram| %>
-  <p><%= gram.message %></p>
+  <div class="gram">
+    <% if gram.picture.url.present? %>
+      <%= image_tag gram.picture.url %>
+    <% end %>
+    <p><%= gram.message %></p>
+  </div>
 <% end %>

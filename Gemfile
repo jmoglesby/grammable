@@ -40,7 +40,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Others
 gem 'bootstrap'
+gem 'carrierwave'
 gem 'devise'
+gem 'figaro'
+gem 'fog-aws'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -74,4 +77,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
