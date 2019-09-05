@@ -30,6 +30,13 @@ body {
   font-family: 'Pacifico', cursive;
 }
 
+.notice-box {
+  position: absolute;
+  top: 75px;
+  z-index: 1000;
+  width: 100%;
+}
+
 .gram {
   background-color: #fff;
   border-radius: .25rem;
@@ -68,13 +75,17 @@ body {
 
 .comment {
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 8px;
+  border-left: 4px solid #e8e8e8;
 }
 
 .comment-handle {
   color: #125688;
-  font-weight: bold;
-  font-size: 18px;
+  font-size: 12px;
+}
+
+#add-comment-form {
+  display: none;
 }
 
 label {
@@ -86,6 +97,10 @@ input {
   font-weight: 400;
 }
 
+hr {
+  width: 85%;
+}
+
 .my-btn {
   background-color: #125688;
   font-size: 24px;
@@ -94,4 +109,16 @@ input {
 
 .my-btn:hover {
   color: white;
+}
+
+.badge {
+  font-weight: 300;
+}
+
+.badge:hover {
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 25px;
 }

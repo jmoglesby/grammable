@@ -35,13 +35,16 @@
     <% if notice.present? || alert.present? %>
       <div class="notice-box">
         <% if notice.present? %>
-          <p class="notice"><%= notice %></p>
+          <div class="alert alert-secondary col-6 offset-3"><%= notice %></div>
         <% elsif alert.present? %>
-          <p class="alert"><%= alert %></p>
+          <div class="alert alert-warning col-6 offset-3"><%= alert %></div>
         <% end %>
       </div>
     <% end %>
 
     <%= yield %>
+
+    <footer>
+    </footer>
   </body>
 </html>

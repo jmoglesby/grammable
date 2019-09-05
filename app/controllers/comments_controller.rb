@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     if @comment.valid?
       redirect_to root_path
     else
-      render plain: 'Comment not saved - please try again', status: :error
+      redirect_to root_path, alert: 'Could not save comment'
     end
   end
 
