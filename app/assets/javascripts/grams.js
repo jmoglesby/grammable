@@ -3,8 +3,8 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $( document ).ready( function () {
-  $('#add-comment').click( function () {
-    var form = $('#add-comment-form');
+  $('.badge').click( function () {
+    var form = $('.comment-form');
     if (form.data('state') === 'hidden') {
       form.slideDown();
       form.data('state', 'expanded');
